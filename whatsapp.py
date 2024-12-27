@@ -30,9 +30,11 @@ message = "Happy New Year! 🎉 Wishing you all the best!"
 for contact in contacts:
     try:
         print(f"Searching for contact: {contact}...")
-        
+
         # Find and click on the search box
-        search_box = driver.find_element(By.XPATH, "//div[@contenteditable='true' and @data-tab='3']")
+        search_box = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//div[@contenteditable='true' and @data-tab='3']"))
+        )
         search_box.click()
         search_box.clear()  # Clear any previous input
         search_box.send_keys(contact)
@@ -43,25 +45,27 @@ for contact in contacts:
             EC.presence_of_element_located((By.XPATH, f"//span[@title='{contact}']"))
         )
         search_result.click()
-        time.sleep(2)  # Wait for the chat to load
-
-        # Wait for the message input box to be available
+        
+        # Wait for the message input box to be available (this ensures that the contact page has loaded completely)
         message_box = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//div[@contenteditable='true' and @data-tab='1']"))
         )
+
+        # Send the message
         message_box.click()  # Make sure it's active
         message_box.send_keys(message)
         message_box.send_keys(Keys.ENTER)
-        time.sleep(2)
+        time.sleep(2)  # Wait for the message to send
 
         print(f"Message successfully sent to {contact}.")
 
-        # Clear the search box after sending the message
+        # After sending the message, clear the search box for the next contact
         search_box.clear()
         time.sleep(1)  # Add some delay before continuing
 
     except Exception as e:
         print(f"Failed to send message to {contact}. Error: {e}")
+        search_box.clear()  # Ensure search box is cleared on failure as well
 
 # Close the browser after completing all tasks
 print("Task completed. Closing the browser...")
