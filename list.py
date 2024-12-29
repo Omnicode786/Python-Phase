@@ -34,3 +34,8 @@ print(fruits)
 print(fruits.pop(2))
 # this would remove the element at the given index and return the element that is removed
 print(fruits)
+# aik or direct method he remove ya change krne ka
+fruits[1] = "Orange"
+print(fruits)
+# hey ai give me example of the list used above in the code
+# // this is an example of list in python
