@@ -70,3 +70,4 @@ for contact in contacts:
 # Close the browser after completing all tasks
 print("Task completed. Closing the browser...")
 driver.quit()
+ 
