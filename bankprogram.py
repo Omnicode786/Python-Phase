@@ -1,9 +1,11 @@
 def withdraw (balance, amount):
     balance -= amount
     print(f"you withdrawed {amount} from you account your new balance is: {balance}")
+    return balance
 def deposit (balance, amount):
     balance += amount
     print(f"you deposited {amount} into your account your new balance is: {balance}")
+    return balance
 def viewbalance(balance):
     print(f"Your current balance is: {balance}")
 def main():
@@ -11,7 +13,7 @@ def main():
     active = False
     loop = True
     balance = float(input("Enter your balance: "))
-    if balance > 0:
+    if balance >= 0:
         active = True
     if active:
         while loop and active:
@@ -21,15 +23,20 @@ def main():
                 viewbalance(balance)
             elif choice == 2:
                 amount = float(input("Enter the amount you want to withdraw: "))
-                withdraw(balance, amount)
+                balance = withdraw(balance, amount)
             elif choice == 3:
                 amount = float(input("Enter the amount you want to deposit: "))
-                withdraw(balance, amount)
+                balance = deposit(balance, amount)
             elif choice == 4:
-                active = int(input("Enter 1 for active and 0 for locking it: "))
+                check = int(input("Enter 1 for active and 0 for locking it: "))
+                if check == 1:
+                    active = True
+                    print("Tour account is already active keep using us")
+                else:
+                    print("Your account has been locked, Thanks for using our program bye!")
+                    active = False
             else:
                 print("Thanks for using our program bye!")
                 loop = False
-main(
-
-)
+    print("Your account is locked!!")
+main()
