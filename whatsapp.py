@@ -23,7 +23,7 @@ print("Waiting for WhatsApp Web to load...")
 WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@contenteditable='true' and @data-tab='3']")))
 
 # Define contacts and message
-contacts = ["Abdul Kabeer", "Muhammad Suman", "Mansoor Alam"]  # Replace with your contact names or group names
+contacts = ["Ye me hi hun"]  # Replace with your contact names or group names
 message = "Happy New Year! 🎉 Wishing you all the best!"
 
 # Send message to each contact
