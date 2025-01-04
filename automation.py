@@ -61,5 +61,5 @@ def reverse_changedir(directory):
             os.rmdir(folderpath)
     print("Reverse operation completed successfully.")
 
-changedir(r"C:\Users\lkj\OneDrive\Desktop")
-# reverse_changedir(r"C:\Users\lkj\OneDrive\Desktop")
+#changedir(r"C:\Users\lkj\OneDrive\Desktop")
+reverse_changedir(r"C:\Users\lkj\OneDrive\Desktop")
