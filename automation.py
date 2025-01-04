@@ -10,7 +10,8 @@ def changedir(directory):
         "Songs":".mp3",
         "TextFiles": [".txt"],
           "Images":[".png", ".jpeg", ".jpg"], 
-        "Zip files":[".rar",".7zip", ".zip"]
+        "Zip files":[".rar",".7zip", ".zip"],
+        "PDF and Documents": [".pdf", ".docx"]
     }
     if not os.path.exists(directory):
         print("The path was not found")
