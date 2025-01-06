@@ -1,6 +1,6 @@
 import os
-import shutil
-
+import shutil as storage
+# because of this now we can call shutil as storage pretty neat right meri jan ke tote
 
 
 
@@ -29,7 +29,7 @@ def changedir(directory):
         for folder, extensions in filestobechanges.items():
             if extension.lower() in extensions:
                 destination = os.path.join(directory,folder)
-                shutil.move(filekipath, destination)
+                storage.move(filekipath, destination)
                 print(f"{file} moved to {folder}")
                 break
     print("Succesfully done meri jan ke tote")
@@ -55,7 +55,7 @@ def reverse_changedir(directory):
                 _, extension = os.path.splitext(file)
                 if extension.lower() in extensions:
                     destination = os.path.join(directory, file)
-                    shutil.move(file_path, destination)
+                    storage.move(file_path, destination)
                     print(f"{file} moved back to the root directory")
             # Optionally, remove the folder after moving the files back
             os.rmdir(folderpath)

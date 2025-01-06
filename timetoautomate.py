@@ -4,11 +4,16 @@ A company is looking at automating one of their internal processes and wants to 
 
 '''
 
-time_to_automate = 40*60
-time_to_perform = 10
 
-amount_of_times_done = time_to_automate / time_to_perform
+def calculation(x,y):
+    time_to_automate = x*60
+    time_to_perform = y
 
-#rem that the amount of times done is basically if its done in once a day then that amount wil be counted in days and for ex here it is weeks then the amount will be in weeks
+    amount_of_times_done = time_to_automate / time_to_perform
 
-print(f"The amount of weeks it will take will be: {amount_of_times_done:.0f}")
+    #rem that the amount of times done is basically if its done in once a day then that amount wil be counted in days and for ex here it is weeks then the amount will be in weeks
+
+    print(f"The amount of weeks it will take will be: {amount_of_times_done:.0f}")
+
+calculation(40, 10)
+calculation(12, 50)
