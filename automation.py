@@ -33,6 +33,13 @@ def changedir(directory):
                 print(f"{file} moved to {folder}")
                 break
     print("Succesfully done meri jan ke tote")
+
+
+
+
+
+
+    
 def reverse_changedir(directory):
     filestobechanges = {
         "Videos": [".mp4"], 
