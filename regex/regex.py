@@ -52,12 +52,7 @@ print(re.search(r"[a-z][a-z]ng", "penguin"))
 def check_punctuation (text):
   result = re.search(r"[.?!,:;]", text)
   return result != None
-
-print(check_punctuation("This is a sentence that ends with a period.")) # True
-print(check_punctuation("This is a sentence fragment without a period")) # False
-print(check_punctuation("Aren't regular expressions awesome?")) # True
-print(check_punctuation("Wow! We're really picking up some steam now!")) # True
-print(check_punctuation("End of the line")) # False
+  
 
 print(re.search(r"cats|dogs", "I like dogs"))
 #  basically works like or gate
@@ -68,3 +63,12 @@ print(re.findall(r"cats|dogs", "I like cats and dogs both"))
 # return a list of all the matches
 print(re.search(r"pe.*n", "penguin"))
 #  this means match pe multipied buy any other thing coming accross it
+print(check_punctuation("This is a sentence that ends with a period.")) # True
+print(check_punctuation("This is a sentence fragment without a period")) # False
+print(check_punctuation("Aren't regular expressions awesome?")) # True
+print(check_punctuation("Wow! We're really picking up some steam now!")) # True
+print(check_punctuation("End of the line")) # False
+def returner():
+  return 0
+
+returner()
