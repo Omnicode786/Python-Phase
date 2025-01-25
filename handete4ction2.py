@@ -9,7 +9,7 @@ mp_draw = mp.solutions.drawing_utils
 hands = mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7)
 
 # ESP32 IP address
-ESP32_IP = "192.168.1.102"
+ESP32_IP = "192.168.1.105"
 
 # Initialize webcam with lower resolution
 cap = cv2.VideoCapture(0)
@@ -51,6 +51,7 @@ while True:
             try:
                 requests.get(f'http://{ESP32_IP}/off')
                 last_request_time = current_time
+                print("sent..")
             except:
                 print("Failed to send request to ESP32")
 
