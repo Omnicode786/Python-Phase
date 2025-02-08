@@ -13,7 +13,7 @@ for file in os.listdir(infolder):
         img_path = os.path.join(infolder, file)
         pdf_path = os.path.join(output_folder, f"{os.path.splitext(file)[0]}.pdf")
 
-        image = Image.open(img_path).rotate(-90)
+        image = Image.open(img_path).rotate(-90) # to rotate it 
         image.convert("RGB").save(pdf_path)
 
         merger.append(pdf_path)
@@ -26,3 +26,6 @@ merger.close()
 print(f"Merged PDF saved at: {merged_pdf_path}")
 for pdf in temp_files:
     os.remove(pdf)
+
+
+    
