@@ -39,3 +39,7 @@ fruits[1] = "Orange"
 print(fruits)
 # hey ai give me example of the list used above in the code
 # // this is an example of list in python
+
+# The .split(',') method splits the string at each comma (,) and returns a list of substrings. So, 
+'1,2,3,4'.split(',') 
+# results in ['1', '2', '3', '4'].
