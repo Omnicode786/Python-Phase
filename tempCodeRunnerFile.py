@@ -1,1 +1,0 @@
-changedir(r"C:\Users\lkj\OneDrive\Desktop")
