@@ -26,27 +26,27 @@ while True:
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(rgb_frame)
 
-    if results.multi_hand_landmarks:
-        print("Hand detected!")
+    # if results.multi_hand_landmarks:
+    #     print("Hand detected!")
         
-        current_time = time.time()
-        if current_time - last_request_time > request_interval:
-            try:
-                requests.get(f'http://{ESP32_IP}/on')
-                last_request_time = current_time
-            except:
-                print("Failed to send request to ESP32")
-    else:
-        print("No hand detected.")
+    #     current_time = time.time()
+    #     if current_time - last_request_time > request_interval:
+    #         try:
+    #             requests.get(f'http://{ESP32_IP}/on')
+    #             last_request_time = current_time
+    #         except:
+    #             print("Failed to send request to ESP32")
+    # else:
+    #     print("No hand detected.")
         
-        current_time = time.time()
-        if current_time - last_request_time > request_interval:
-            try:
-                requests.get(f'http://{ESP32_IP}/off')
-                last_request_time = current_time
-                print("sent..")
-            except:
-                print("Failed to send request to ESP32")
+    #     current_time = time.time()
+    #     if current_time - last_request_time > request_interval:
+    #         try:
+    #             requests.get(f'http://{ESP32_IP}/off')
+    #             last_request_time = current_time
+    #             print("sent..")
+    #         except:
+    #             print("Failed to send request to ESP32")
 
     if results.multi_hand_landmarks:
         for hand_landmarks in results.multi_hand_landmarks:
