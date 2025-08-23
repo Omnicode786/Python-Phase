@@ -14,17 +14,22 @@ def rescaleFrame(frame, scale = 0.1):
 
 
 
-img = cv.imread('OPENCVPROJECTS\\photos\\photo2.jpg')
-cv.imshow('Image', img)
-resize_image = rescaleFrame(img)
-cv.imshow("Resized Image", resize_image)
+img = cv.imread('photos\\photo2.jpg')
+if img is None:
+    print("Image not found!")
+else:
+    cv.imshow('Image', img)
+    resize_image = rescaleFrame(img)
+    cv.imshow("Resized Image", resize_image)
 
 
 
 
 while True:
     isTrue, frame = capture.read()
-
+    if not isTrue:   # video ended or error
+        print("Video ended or cannot read frame.")
+        break
     frame_resized = rescaleFrame(frame)
     cv.imshow('Video',frame)
     cv.imshow('Video resized', frame_resized)
