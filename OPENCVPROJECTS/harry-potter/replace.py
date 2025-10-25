@@ -1,9 +1,8 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
-# Load background (optional: or capture background first)
 background = cv2.imread("harry-potter\\background.jpg")
 background = cv2.flip(background,1)
 
@@ -13,12 +12,11 @@ while cap.isOpened():
     if not ret:
         break
 
-    frame = cv2.flip(frame, 1)  # Mirror effect
+    frame = cv2.flip(frame, 1) 
     background = cv2.resize(background, (frame.shape[1], frame.shape[0]))
 
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # ---- HSV range for your red cloth ----
     lower_red1 = np.array([0, 120, 70])
     upper_red1 = np.array([10, 255, 255])
     lower_red2 = np.array([170, 120, 70])
@@ -28,13 +26,11 @@ while cap.isOpened():
     mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
     mask = mask1 + mask2
 
-    # Clean the mask
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
     mask = cv2.dilate(mask, np.ones((3, 3), np.uint8), iterations=1)
 
     mask_inv = cv2.bitwise_not(mask)
 
-    # Apply masks
     res1 = cv2.bitwise_and(frame, frame, mask=mask_inv)
     res2 = cv2.bitwise_and(background, background, mask=mask)
 
